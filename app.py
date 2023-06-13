@@ -12,7 +12,6 @@ env_path = Path(__file__).resolve().parent.parent / ".env"
 load_dotenv(env_path)
 
 openai_api_key = os.getenv("OPENAI_API_KEY")
-print(openai_api_key)
 
 
 @app.route('/', methods=("GET", "POST"))
