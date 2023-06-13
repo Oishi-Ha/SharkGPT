@@ -24,7 +24,7 @@ def chat():
     prompt = request.form['message']
 
     # Llms
-    llm = OpenAI(temperature=0.9)
+    llm = OpenAI(model_name="text-davinci-003", temperature=0.9)
     response = llm.generate([prompt], api_key=openai_api_key)
 
     # Show stuff to the screen if there's prompts
