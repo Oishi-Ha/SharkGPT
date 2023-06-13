@@ -22,13 +22,7 @@ def chat():
     llm = OpenAI(model_name="text-davinci-003", temperature=0.9)
     response = llm.generate([prompt], api_key=openai_api_key)
 
-    # Extract the properties from the response
-    response_dict = {
-        'generations': response.generations,
-        'llm_output': response.llm_output,
-        'run': response.run,
-    }
-    return jsonify(response_dict)
+    return response
 
 
 if __name__ == '__main__':
