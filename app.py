@@ -29,7 +29,7 @@ def runinfo_to_dict(runinfo):
 
 def llmresult_to_dict(llmresult):
     return {
-        "generations": [generation_to_dict(g) for g in llmresult.generations],
+        "generations": [[generation_to_dict(g) for g in gen_list] for gen_list in llmresult.generations],
         "llm_output": llmresult.llm_output,
         "run": runinfo_to_dict(llmresult.run) if llmresult.run else None,
     }
