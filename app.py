@@ -1,5 +1,4 @@
 import os
-# import openai
 from flask import Flask, render_template, request
 from langchain.llms import OpenAI
 from dotenv import load_dotenv
@@ -26,11 +25,11 @@ def chat():
     prompt = request.form['message']
 
     # Llms
-    llm = OpenAI(api_key=openai_api_key, temperature=0.9)
+    llm = OpenAI(temperature=0.9)
+    response = llm.generate([prompt], api_key=openai_api_key)
 
     # Show stuff to the screen if there's prompts
     if prompt:
-        response = llm(prompt)
         return response
 
     return ""
